@@ -1,0 +1,63 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<h1 class="text-center">@Title</h1>
+
+
+<div class="container">
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between list-font-size">
+            <div class="text-box">Dapibus ac facilisis in</div>
+                <div>
+                    <button @onclick="Done" class="btn btn-success">Done</button>
+                    <button @onclick="Edit" class="btn btn-secondary">Edit</button>
+                    <button @onclick="Delete" class="btn btn-danger">Delete</button>
+                </div>
+        </li>
+        
+    </ul>
+
+    <div class="input-group mb-3 mt-5">
+        <input type="text" class="form-control" placeholder="Add Todo" aria-label="Add Todo" aria-describedby="Add Todo">
+        <div class="input-group-append">
+            <button @onclick="Add" class="btn btn-outline-secondary" type="button">Add</button>
+        </div>
+    </div>
+</div>
+
+<style>
+    .list-font-size{
+        font-size:1.5rem;
+    }
+
+    .text-box {
+        width: 75%;
+        overflow-y: scroll;
+        scrollbar-width:thin;
+    }
+    
+</style>
+
+@code{
+        public string Title = "Todos List";
+
+        private void Add()
+        {
+            Console.WriteLine("Todo has been added");
+        }
+
+        private void Delete()
+        {
+            Console.WriteLine("Todo has been deleted");
+        }
+
+        private void Edit()
+        {
+            Console.WriteLine("You have made an edit");
+        }
+        private void Done()
+        {
+            Console.WriteLine("Task is complete");
+        }
+    }
