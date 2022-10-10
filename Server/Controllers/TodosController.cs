@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Business.DAL;
 using Business.Models;
+using System.Text.Json;
 
 
 namespace Server.Controllers
@@ -32,14 +33,22 @@ namespace Server.Controllers
 
         // POST: api/Todos
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult<Todos> Post([FromBody] Todos value)
         {
+            string JsonString = JsonSerializer.Serialize(value);
+            return Ok(todosData.AddTodo(JsonString));
+
+
         }
 
         // PUT: api/Todos/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult<Todos> Put(int id, [FromBody] Todos value)
         {
+            string JsonString = JsonSerializer.Serialize(value);
+
+            return Ok(todosData.EditTodo(id, JsonString));
+
         }
 
         // DELETE: api/Todos/5

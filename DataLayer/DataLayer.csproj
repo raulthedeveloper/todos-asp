@@ -7,14 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="DAL\" />
-    <None Remove="Models\" />
+    <None Remove="MySql.Data" />
+    <None Remove="MySqlConnector" />
+    <None Remove="Connection\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DAL\" />
-    <Folder Include="Models\" />
+    <PackageReference Include="MySql.Data" Version="8.0.30" />
+    <PackageReference Include="MySqlConnector" Version="2.1.13" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
+    <Folder Include="Connection\" />
   </ItemGroup>
 </Project>
